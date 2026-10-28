@@ -1,0 +1,260 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --paper: #f7f7f2;
+  --ink: #20251f;
+  --muted: #777c72;
+  --line: #dedfd5;
+  --accent: #c5f36a;
+  --green: #385c31;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* Page header */
+header {
+  padding: 24px 7%;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+header h1 {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+header p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Main layout */
+main {
+  width: 86%;
+  max-width: 1120px;
+  margin: 65px auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 55px;
+  align-items: start;
+}
+
+/* Section headings */
+h2 {
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  margin-bottom: 8px;
+}
+
+.editor > p,
+.stack-section > p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+/* Editor */
+.editor {
+  padding-top: 5px;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 240px;
+  padding: 20px;
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.8;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+textarea::placeholder {
+  color: #a4a79d;
+}
+
+textarea:focus {
+  border-color: var(--green);
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+button {
+  padding: 11px 17px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+
+button:hover {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+#undoBtn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+#undoBtn:hover {
+  background: #b3e454;
+  border-color: #b3e454;
+}
+
+#clearBtn {
+  background: transparent;
+  color: var(--ink);
+}
+
+#clearBtn:hover {
+  background: #e9eae1;
+  border-color: var(--line);
+}
+
+/* Status message */
+#message {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--green);
+}
+
+/* Stack panel */
+.stack-section {
+  border-top: 3px solid var(--ink);
+  padding-top: 18px;
+}
+
+.stack-section h2 {
+  margin-bottom: 8px;
+}
+
+.stack-display {
+  min-height: 240px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: #f0f1e9;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.stack-display > p {
+  margin: auto;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.stack-item {
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 3px solid #a9ada1;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.stack-item:first-child {
+  background: var(--accent);
+  border-color: var(--accent);
+  border-left: 3px solid var(--green);
+  color: var(--ink);
+}
+
+/* Stack information */
+#stackCount {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* Footer */
+footer {
+  width: 86%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 0 28px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Small screens */
+@media (max-width: 760px) {
+  header {
+    padding: 20px 5%;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  main {
+    width: 90%;
+    margin: 38px auto;
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+
+  textarea {
+    min-height: 190px;
+  }
+
+  .stack-display {
+    min-height: 190px;
+  }
+
+  footer {
+    width: 90%;
+  }
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.stack-item small {
+  display: block;
+  margin-top: 6px;
+  color: #777c72;
+  font-size: 11px;
+}

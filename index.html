@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Undo System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Stack-Based Undo System</h1>
+        <p>Understanding the LIFO principle in real life</p>
+    </header>
+
+    <main>
+        <section class="editor">
+            <h2>Simple Text Editor</h2>
+            <p>Type something below and test the Undo button.</p>
+
+            <textarea id="textInput"
+                placeholder="Start typing here..."></textarea>
+
+            <div class="buttons">
+                <button id="saveBtn">Save State</button>
+                <button id="undoBtn">Undo</button>
+                <button id="clearBtn">Clear</button>
+            </div>
+
+            <p id="message">Ready to use.</p>
+        </section>
+
+        <section class="stack-section">
+            <h2>How the Stack Works</h2>
+            <p>Saved text states appear below. The top item is removed first.</p>
+            <div id="stackDisplay" class="stack-display">
+                <p>Your stack is empty.</p>
+            </div>
+            <p id="stackCount">Stack size: 0</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data Structures Project | Stack (LIFO)</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
